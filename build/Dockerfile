@@ -20,12 +20,13 @@ RUN set -ex \
 	    /var/lib/apt/lists/*
 
 # Copy scripts.
-COPY /script/dontstarvetogether /usr/local/bin
-RUN set -ex \
-	&& chmod +x /usr/local/bin/dontstarvetogether
-
-# Copy entrypoint script.
 COPY /entrypoint.sh /
+COPY /script/dontstarvetogether /usr/local/bin
+
+# Set permissions.
+RUN set -ex \
+	&& chmod +x /entrypoint.sh \
+	&& chmod +x /usr/local/bin/dontstarvetogether
 
 # Set working directory.
 WORKDIR "$STEAM_PATH/bin"
