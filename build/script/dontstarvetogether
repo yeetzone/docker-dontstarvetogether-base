@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+
+exec "$STEAM_PATH/bin/dontstarve_dedicated_server_nullrenderer" "$@"
