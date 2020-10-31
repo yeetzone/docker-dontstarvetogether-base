@@ -3,13 +3,13 @@
 # Exit immediately on non-zero return codes.
 set -ex
 
-# Use the `dontstarvetogether` command if only options were given.
+# Use the `dontstarve_dedicated_server_nullrenderer` command if only options were given.
 if [ "${1:0:1}" = '-' ]; then
-  set -- dontstarvetogether "$@"
+  set -- dontstarve_dedicated_server_nullrenderer "$@"
 fi
 
-# Handle running the `dontstarvetogether` command.
-if [ "$1" = "dontstarvetogether" ]; then
+# Handle running the `dontstarve_dedicated_server_nullrenderer` command.
+if [ "$1" = "dontstarve_dedicated_server_nullrenderer" ]; then
   set -- gosu "$STEAM_USER" "$@"
 fi
 

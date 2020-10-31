@@ -21,12 +21,12 @@ RUN set -ex \
 
 # Copy scripts.
 COPY /entrypoint.sh /
-COPY /script/dontstarvetogether /usr/local/bin
+COPY /script/dontstarve_dedicated_server_nullrenderer /usr/local/bin
 
 # Set permissions.
 RUN set -ex \
 	&& chmod +x /entrypoint.sh \
-	&& chmod +x /usr/local/bin/dontstarvetogether
+	&& chmod +x /usr/local/bin/dontstarve_dedicated_server_nullrenderer
 
 # Set working directory.
 WORKDIR "$STEAM_PATH/bin"
@@ -35,4 +35,4 @@ WORKDIR "$STEAM_PATH/bin"
 ENTRYPOINT ["/entrypoint.sh"]
 
 # Set command.
-CMD ["dontstarvetogether"]
+CMD ["dontstarve_dedicated_server_nullrenderer"]
