@@ -24,6 +24,8 @@ COPY /script/dontstarve_dedicated_server_nullrenderer /usr/local/bin
 
 # Set permissions.
 RUN set -ex \
+	&& mkdir -p $STEAM_PATH \
+	&& chown $STEAM_USER:$STEAM_USER $STEAM_PATH \
 	&& chmod +x /entrypoint.sh \
 	&& chmod +x /usr/local/bin/dontstarve_dedicated_server_nullrenderer
 
