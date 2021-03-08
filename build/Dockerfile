@@ -1,5 +1,4 @@
-# Create final image.
-FROM yeetzone/steamcmd:next
+FROM yeetzone/steamcmd
 MAINTAINER YEET Zone <support@yeet.zone>
 
 # Set environment.
