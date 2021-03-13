@@ -27,7 +27,8 @@ RUN set -ex \
 	&& mkdir -p $STEAM_PATH \
 	&& chown $STEAM_USER:$STEAM_USER $STEAM_PATH \
 	&& chmod +x /entrypoint.sh \
-	&& chmod +x /usr/local/bin/dontstarve_dedicated_server_nullrenderer
+	&& chmod +x /usr/local/bin/dontstarve_dedicated_server_nullrenderer \
+	&& sync
 
 # Set working directory.
 WORKDIR "$STEAM_PATH/bin"
