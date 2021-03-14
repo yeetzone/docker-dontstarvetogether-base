@@ -1,4 +1,4 @@
-# Don't Starve Together `Base`
+# Don't Starve Together `BASE`
 > Dockerfile for building a basic [`Don't Starve Together`][website] dedicated server image.
 
 ---
