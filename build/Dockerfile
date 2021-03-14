@@ -1,3 +1,6 @@
+ARG DATA_IMAGE=tianon/true
+FROM $DATA_IMAGE as DATA
+
 FROM yeetzone/steamcmd
 MAINTAINER YEET Zone <support@yeet.zone>
 
@@ -18,13 +21,16 @@ RUN set -ex \
 	    /var/tmp/* \
 	    /var/lib/apt/lists/*
 
+# Copy data.
+COPY --from=DATA /true $STEAM_PATH* $STEAM_PATH/
+
 # Copy scripts.
 COPY /entrypoint.sh /
 COPY /script/dontstarve_dedicated_server_nullrenderer /usr/local/bin
 
 # Set permissions.
 RUN set -ex \
-	&& mkdir -p $STEAM_PATH \
+	&& mkdir -p $STEAM_PATH/bin \
 	&& chown $STEAM_USER:$STEAM_USER $STEAM_PATH \
 	&& chmod +x /entrypoint.sh \
 	&& chmod +x /usr/local/bin/dontstarve_dedicated_server_nullrenderer \
